@@ -1,5 +1,6 @@
 import argparse
 import json
+from tests import pass_to_file
 
 
 def parsik():
@@ -11,7 +12,9 @@ def parsik():
     return parser.parse_args()
 
 
-def generate_diff(path1, path2):
+def generate_diff(file1, file2):
+    path1 = pass_to_file(file1)
+    path2 = pass_to_file(file2)
     lines1 = json.load(open(path1))
     lines2 = json.load(open(path2))
     keys = lines1.keys() | lines2.keys()

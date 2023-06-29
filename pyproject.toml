@@ -11,9 +11,11 @@ python = "^3.10"
 
 [tool.poetry.scripts]
 gendiff = "gendiff.scripts.gendiff:main"
+generate-diff = "gendiff.scripts.generate_diff:main"
 
 [tool.poetry.group.dev.dependencies]
 flake8 = "^6.0.0"
+pytest = "^7.4.0"
 
 [build-system]
 requires = ["poetry-core"]
