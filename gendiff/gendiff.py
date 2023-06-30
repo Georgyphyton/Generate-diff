@@ -1,5 +1,5 @@
 import argparse
-import json
+from gendiff.parser import parse
 
 
 def parsik():
@@ -12,8 +12,8 @@ def parsik():
 
 
 def generate_diff(file1, file2):
-    lines1 = json.load(open(file1))
-    lines2 = json.load(open(file2))
+    lines1 = parse(file1)
+    lines2 = parse(file2)
     keys = lines1.keys() | lines2.keys()
     result = ['{']
     for key in sorted(keys):
