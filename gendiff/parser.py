@@ -15,5 +15,7 @@ def parse(file):
             return json.load(f)
         elif form in ('yml', 'yaml'):
             return yaml.safe_load(f)
+        elif form == 'txt':
+            return f.read()
         else:
             raise ValueError(f"Unrecognized extension: {form}")

@@ -1,5 +1,7 @@
 import argparse
 from gendiff.parser import parse
+from gendiff.dict_gendiff import dict_diff
+from gendiff.format.stylish import to_stylish
 
 
 def parsik():
@@ -11,19 +13,8 @@ def parsik():
     return parser.parse_args()
 
 
-def generate_diff(file1, file2):
+def generate_diff(file1, file2, formater=to_stylish):
     lines1 = parse(file1)
     lines2 = parse(file2)
-    keys = lines1.keys() | lines2.keys()
-    result = ['{']
-    for key in sorted(keys):
-        if key not in lines1:
-            result.append(f'  + {key}: {str(lines2[key]).lower()}')
-        elif key not in lines2:
-            result.append(f'  - {key}: {str(lines1[key]).lower()}')
-        elif lines1[key] == lines2[key]:
-            result.append(f'  - {key}: {str(lines1[key]).lower()}')
-            result.append(f'  + {key}: {str(lines2[key]).lower()}')
-        else:
-            result.append(f'    {key}: {str(lines1[key]).lower()}')
-    return '\n'.join(result) + '\n}'
+    result = dict_diff(lines1, lines2)
+    return formater(result)
