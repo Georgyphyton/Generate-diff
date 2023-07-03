@@ -24,4 +24,6 @@ def complex(item):
         return str(item).lower()
     if item is None:
         return 'null'
+    if isinstance(item, int):
+        return str(item)
     return f"'{str(item)}'"
