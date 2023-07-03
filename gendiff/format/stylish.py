@@ -21,7 +21,7 @@ def to_stylish(diff, level=0):
         else:
             result.append(f"{level*' '}    {dicts['key']}: "
                           f"{to_stylish(dicts['value'], level+DEEP)}")
-    return '\n'.join(result) + '\n'+level*' '+'}'
+    return '\n'.join(result) + '\n' + level * ' ' + '}'
 
 
 def dict_to_str(dicti, level):
@@ -35,8 +35,8 @@ def dict_to_str(dicti, level):
     result = '{\n'
     for key, value in dicti.items():
         result += '{x}{b}: {c}\n'.format(
-            x=' '*(level+DEEP),
+            x=' ' * (level + DEEP),
             b=key,
-            c=dict_to_str(value, level+DEEP)
+            c=dict_to_str(value, level + DEEP)
         )
     return result + end
