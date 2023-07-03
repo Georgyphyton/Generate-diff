@@ -2,6 +2,7 @@ import argparse
 from gendiff.parser import parse
 from gendiff.dict_gendiff import dict_diff
 from gendiff.format.stylish import to_stylish
+from gendiff.format import formater
 
 
 def parsik():
@@ -13,8 +14,8 @@ def parsik():
     return parser.parse_args()
 
 
-def generate_diff(file1, file2, formater=to_stylish):
+def generate_diff(file1, file2, format=to_stylish):
     lines1 = parse(file1)
     lines2 = parse(file2)
     result = dict_diff(lines1, lines2)
-    return formater(result)
+    return formater(result, format)
