@@ -10,4 +10,3 @@ def formater(item, format):
         return to_plain(item)
     elif format == 'json':
         return to_json(item)
-    raise ValueError(f"Unrecognized formater: {formater}")
