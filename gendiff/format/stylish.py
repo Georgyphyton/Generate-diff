@@ -1,9 +1,9 @@
 DEEP = 4
 
 
-def to_stylish(list_of_items, level=0):
+def to_stylish(diff, level=0):
     result = ['{']
-    for dicts in list_of_items:
+    for dicts in diff:
         if dicts['operator'] == 'add':
             result.append(f"{level*' '}  + {dicts['key']}: "
                           f"{dict_to_str(dicts['value'], level+DEEP)}")

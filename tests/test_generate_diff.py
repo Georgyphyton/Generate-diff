@@ -42,6 +42,12 @@ import pytest
                     'file2_dict.json',
                     'result_plain_dict.txt',
                     'plain',
-                    id='empty file')])
+                    id='plain_dict'),
+            pytest.param(
+                    'file1_dict.yaml',
+                    'file2_dict.yaml',
+                    'result_json_dict.txt',
+                    'json',
+                    id='yaml_dict_json')])
 def test_json(input1, input2, output, format):
     assert generate_diff(input1, input2, format) == parse(output)

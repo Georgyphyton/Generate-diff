@@ -1,4 +1,4 @@
-def to_plain(lists_of_items):
+def to_plain(diff):
     def walk(lists, res_key):
         result = []
         for dicts in lists:
@@ -14,7 +14,7 @@ def to_plain(lists_of_items):
                               f" From {complex(dicts['value'][0])}"
                               f" to {complex(dicts['value'][1])}")
         return '\n'.join(result)
-    return walk(lists_of_items, '')
+    return walk(diff, '')
 
 
 def complex(item):
