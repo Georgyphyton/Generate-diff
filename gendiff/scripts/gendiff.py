@@ -1,5 +1,4 @@
-from gendiff.gendiff import parsik
-from gendiff.gendiff import generate_diff
+from gendiff.gendiff import parsik, generate_diff
 
 
 def main():
